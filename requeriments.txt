@@ -1,0 +1,6 @@
+fastapi>=0.68.0
+uvicorn>=0.15.0
+whisper-jax[flax]
+jax[cuda12] -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+python-multipart
+pydub==0.25.1
