@@ -39,8 +39,8 @@ RUN cd frontend && npm run build
 COPY . .
 
 # Expõe as portas
-EXPOSE 7860  # Backend (FastAPI)
-EXPOSE 3000  # Frontend (Next.js)
+EXPOSE 7860
+EXPOSE 3000
 
 # Comando de inicialização
 CMD sh -c "uvicorn app:app --host 0.0.0.0 --port 7860 --client-max-body-size 50M & cd frontend && npm run start"
