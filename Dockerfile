@@ -1,5 +1,11 @@
 FROM nvidia/cuda:12.2.0-runtime-ubuntu22.04
 
+# Instale Node.js 18.x e npm
+RUN apt-get update && apt-get install -y curl \
+    && curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g npm@latest
+
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     python3.10 \
