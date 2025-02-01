@@ -16,8 +16,17 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copia apenas o package.json primeiro
+COPY frontend/package.json ./frontend/
+
+# Instala dependências e gera package-lock.json
+RUN cd frontend && npm install
+
+# Copia o restante dos arquivos
 COPY frontend ./frontend
-RUN cd frontend && npm install next react react-dom && npm run build
+
+# Executa o build
+RUN cd frontend && npm run build
 
 COPY . .
 
